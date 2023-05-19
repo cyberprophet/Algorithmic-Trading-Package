@@ -1,9 +1,16 @@
 ﻿using Microsoft.Extensions.Configuration;
 
+using Newtonsoft.Json;
+
+using RestSharp;
+
 using ShareInvest.Services;
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
@@ -21,14 +28,29 @@ public partial class Install : Window
         };
         menu.Items.AddRange(new[]
         {
+#if DEBUG
+            new System.Windows.Forms.ToolStripMenuItem
+            {
+                Name = nameof(Properties.Resources.LAUNCHER),
+                Text = Properties.Resources.LAUNCHER
+            },
+#endif
             new System.Windows.Forms.ToolStripMenuItem
             {
                 Name = nameof(Properties.Resources.EXIT),
                 Text = Properties.Resources.EXIT
             }
         });
-        menu.ItemClicked += (sender, e) =>
+        menu.ItemClicked += async (sender, e) =>
         {
+            switch (e.ClickedItem?.Name)
+            {
+                case nameof(Properties.Resources.LAUNCHER):
+
+                    await ExecuteAsync(Properties.Resources.LAUNCHER);
+
+                    return;
+            }
             Visibility = Visibility.Hidden;
 
             Close();
@@ -63,11 +85,17 @@ public partial class Install : Window
         };
         timer.Tick += async (sender, e) =>
         {
-            notifyIcon.Icon = icons[DateTime.Now.Second % 6];
+            var index = DateTime.Now.Second % 6;
 
-            await InitializeCoreWebView2Async();
+            if (index == 0)
+            {
+                await InitializeCoreWebView2Async();
+            }
+            notifyIcon.Icon = icons[index];
         };
         InitializeComponent();
+
+        Title = Properties.Resources.TITLE;
 
         var hRgn = WindowAttribute.CreateRoundRectRgn(0, 0, menu.Width, menu.Height, 9, 9);
         var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
@@ -79,23 +107,116 @@ public partial class Install : Window
 
         _ = WindowAttribute.SetWindowRgn(menu.Handle, hRgn, true);
 
-        Title = Properties.Resources.TITLE;
-
+        foreach (var process in Process.GetProcessesByName(Properties.Resources.LAUNCHER))
+        {
+#if DEBUG
+            Debug.WriteLine(new
+            {
+                process.Id,
+                process.StartTime
+            });
+#else
+            if (process.MainModule?.FileVersionInfo is FileVersionInfo vi)
+            {
+                if (string.IsNullOrEmpty(vi.OriginalFilename) ||
+                    char.IsLower(vi.OriginalFilename, 0))
+                {
+                    continue;
+                }
+                if (process.WaitForExit(0x400) is false &&
+                    MessageBoxResult.OK == MessageBox.Show(Properties.Resources.EXIST.Replace('|', '\n'),
+                                                           Title,
+                                                           MessageBoxButton.OKCancel,
+                                                           MessageBoxImage.Stop,
+                                                           MessageBoxResult.Cancel))
+                {
+                    process.Kill();
+                }
+            }
+#endif
+        }
         timer.Start();
     }
     async Task InitializeCoreWebView2Async()
     {
         if (launcher.Source != null)
         {
+            var path = App.Configuration.GetConnectionString(nameof(Properties.Resources.PATH));
+
+            if (string.IsNullOrEmpty(path) is false)
+            {
+                DirectoryInfo di = new(path);
+
+                if (di.Exists)
+                {
+                    var processes = Process.GetProcessesByName(Properties.Resources.LAUNCHER);
+
+                    if (processes.Length == 1 &&
+                        processes[0].MainModule?.FileVersionInfo is FileVersionInfo vi &&
+                        string.IsNullOrEmpty(vi.OriginalFilename) is false &&
+                        char.IsLower(vi.OriginalFilename, 0))
+                    {
+                        timer.Stop();
+
+
+                    }
+                }
+                else
+                {
+                    di.Create();
+                }
+            }
             return;
         }
         await launcher.EnsureCoreWebView2Async();
 
         launcher.Source =
 
-            new Uri(App.Configuration.GetConnectionString(nameof(Properties.Resources.Url)) ??
+            new Uri(App.Configuration.GetConnectionString(nameof(Uri)) ?? Properties.Resources.PATH);
+    }
+    async Task ExecuteAsync(string program)
+    {
+        var fileName = string.Concat(program, App.Configuration.GetConnectionString(Properties.Resources.EXECUTE));
 
-                    Properties.Resources.Url);
+        foreach (var info in Services.Install.GetVersionInfo(fileName))
+        {
+            var index = info.FileName.IndexOf(Properties.Resources.PUBLISH, StringComparison.OrdinalIgnoreCase);
+
+            if (index < 0)
+                continue;
+
+            var route = string.Concat(App.Configuration.GetConnectionString(Properties.Resources.ROUTE),
+                                      '/',
+                                      Status.TransformOutbound(info.GetType().Name));
+
+            var request = new RestRequest(route, Method.POST);
+
+            request.AddJsonBody(JsonConvert.SerializeObject(new Models.FileVersionInfo
+            {
+                App = program,
+                Path = Path.GetDirectoryName(info.FileName)?[index..],
+                FileName = Path.GetFileName(info.FileName),
+                CompanyName = info.CompanyName,
+                FileBuildPart = info.FileBuildPart,
+                FileDescription = info.FileDescription,
+                FileMajorPart = info.FileMajorPart,
+                FileMinorPart = info.FileMinorPart,
+                FilePrivatePart = info.FilePrivatePart,
+                FileVersion = info.FileVersion,
+                InternalName = info.InternalName,
+                OriginalFileName = info.OriginalFilename,
+                PrivateBuild = info.PrivateBuild,
+                ProductBuildPart = info.ProductBuildPart,
+                ProductMajorPart = info.ProductMajorPart,
+                ProductMinorPart = info.ProductMinorPart,
+                ProductName = info.ProductName,
+                ProductPrivatePart = info.ProductPrivatePart,
+                ProductVersion = info.ProductVersion,
+                Publish = DateTime.Now.Ticks,
+                File = await File.ReadAllBytesAsync(info.FileName)
+            }));
+            await client.ExecuteAsync(request, cancellationTokenSource.Token);
+        }
     }
     void OnStateChanged(object sender, EventArgs e)
     {
@@ -118,8 +239,14 @@ public partial class Install : Window
         }
         GC.Collect();
     }
+    readonly RestClient client = new()
+    {
+        BaseUrl = new Uri(App.Configuration.GetConnectionString(Properties.Resources.LAUNCHER) ?? Properties.Resources.PATH),
+        Timeout = -1
+    };
     readonly System.Windows.Forms.ContextMenuStrip menu;
     readonly System.Windows.Forms.NotifyIcon notifyIcon;
     readonly System.Drawing.Icon[] icons;
     readonly DispatcherTimer timer;
+    readonly CancellationTokenSource cancellationTokenSource = new();
 }

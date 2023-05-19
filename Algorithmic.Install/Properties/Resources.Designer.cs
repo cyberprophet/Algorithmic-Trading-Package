@@ -61,6 +61,15 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   Administrator과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ADMIN {
+            get {
+                return ResourceManager.GetString("ADMIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static System.Drawing.Icon bird_alert {
@@ -121,6 +130,42 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   dotnet publish -c release -r win-x64 --no-self-contained과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string BUILD {
+            get {
+                return ResourceManager.GetString("BUILD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   *.csproj과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CSPROJ {
+            get {
+                return ResourceManager.GetString("CSPROJ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Execute과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string EXECUTE {
+            get {
+                return ResourceManager.GetString("EXECUTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The existing launcher is running.||Do you want to force the shutdown?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string EXIST {
+            get {
+                return ResourceManager.GetString("EXIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   시스템 종료과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string EXIT {
@@ -130,20 +175,74 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   동학개미운동과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Launcher과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string TITLE {
+        internal static string LAUNCHER {
             get {
-                return ResourceManager.GetString("TITLE", resourceCulture);
+                return ResourceManager.GetString("LAUNCHER", resourceCulture);
             }
         }
         
         /// <summary>
         ///   https://github.com/share-invest과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Url {
+        internal static string PATH {
             get {
-                return ResourceManager.GetString("Url", resourceCulture);
+                return ResourceManager.GetString("PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   pwsh과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string POWERSHELL {
+            get {
+                return ResourceManager.GetString("POWERSHELL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Publish과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string PUBLISH {
+            get {
+                return ResourceManager.GetString("PUBLISH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   route과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ROUTE {
+            get {
+                return ResourceManager.GetString("ROUTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   appsettings.json과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string SETTINGS {
+            get {
+                return ResourceManager.GetString("SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Source과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string SOURCES {
+            get {
+                return ResourceManager.GetString("SOURCES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   동학개미운동과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string TITLE {
+            get {
+                return ResourceManager.GetString("TITLE", resourceCulture);
             }
         }
         
