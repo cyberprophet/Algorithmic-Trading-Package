@@ -73,6 +73,9 @@ static class Status
                                                                                  name = item.FileName
                                                                              }),
                                                                              new StringBuilder(nameof(FileVersionInfo))))));
+#if DEBUG
+            Debug.WriteLine(model);
+#endif
             if (string.IsNullOrEmpty(model))
             {
                 continue;
