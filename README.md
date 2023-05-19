@@ -14,3 +14,4 @@
 ### · Mobile application is [![ant](https://github.com/Share-Invest/ant/actions/workflows/ant.yml/badge.svg?event=push)](https://github.com/Share-Invest/ant/actions/workflows/ant.yml).
 ### · Desktop application is [![.NET WINDOWS](https://github.com/Share-Invest/Algorithmic-Trading-DeskTop/actions/workflows/windows-desktop.yml/badge.svg)](https://github.com/Share-Invest/Algorithmic-Trading-DeskTop/actions/workflows/windows-desktop.yml).
 ### · Desktop launcher is [![.NET LAUNCHER](https://github.com/Share-Invest/Algorithmic-Trading-Launcher/actions/workflows/windows-launcher.yml/badge.svg)](https://github.com/Share-Invest/Algorithmic-Trading-Launcher/actions/workflows/windows-launcher.yml).
+### · Desktop package is [![.NET PACKAGE](https://github.com/Share-Invest/Algorithmic-Trading-Package/actions/workflows/package-desktop.yml/badge.svg?event=push)](https://github.com/Share-Invest/Algorithmic-Trading-Package/actions/workflows/package-desktop.yml)
