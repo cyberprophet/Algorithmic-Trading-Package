@@ -1,0 +1,53 @@
+name: .NET PACKAGE
+
+on:
+  push:
+    branches: [ 'dev' ]
+    
+    paths:
+      - 'Algorithmic.Install/**'
+
+jobs:
+  build:
+
+    env:
+      working-directory: ./Algorithmic.Install
+      
+    strategy:
+      matrix:
+        targetplatform: [x64]
+        dotnet-version: ['7.0.x']
+
+    runs-on: windows-latest
+    
+    steps:
+    
+    - uses: actions/checkout@v3
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Display .NET version
+      run: dotnet --version
+      working-directory: ${{ env.working-directory }}
+      
+    - name: Install dependencies
+      run: dotnet restore Algorithmic.Windows.csproj
+      working-directory: ${{ env.working-directory }}
+      
+    - name: Execute unit tests
+      run: dotnet test --logger trx --results-directory "server-results-${{ matrix.targetplatform }}-${{ matrix.dotnet-version }}"
+      working-directory: ${{ env.working-directory }}
+    
+    - name: Upload dotnet test results
+      uses: actions/upload-artifact@v3      
+      with:
+        name: dotnet-results-${{ matrix.targetplatform }}-${{ matrix.dotnet-version }}
+        path: ./Algorithmic.Install-results-${{ matrix.targetplatform }}-${{ matrix.dotnet-version }}
+        
+      if: ${{ always() }}
