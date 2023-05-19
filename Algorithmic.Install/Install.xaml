@@ -1,12 +1,14 @@
-﻿<Window x:Class="Algorithmic.Install.MainWindow"
+﻿<Window x:Class="Algorithmic.Installer.Install"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Algorithmic.Install"
+        xmlns:local="clr-namespace:Algorithmic.Installer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Install" Height="450" Width="800">
+
     <Grid>
 
     </Grid>
+
 </Window>

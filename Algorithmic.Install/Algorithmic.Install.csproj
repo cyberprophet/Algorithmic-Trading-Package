@@ -1,10 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows10.0.18362.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>True</UseWindowsForms>
+		<AssemblyName>launcher</AssemblyName>
+		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))er</RootNamespace>
+		<ApplicationIcon>server_home.ico</ApplicationIcon>
+		<Authors>cyberprophet</Authors>
+		<Company>ShareInvest</Company>
+		<Product>Installer</Product>
+		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="server_home.ico" />
+	</ItemGroup>
 
 </Project>

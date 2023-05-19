@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Algorithmic.Install;
+namespace Algorithmic.Installer;
 
 public partial class App : Application
 {
