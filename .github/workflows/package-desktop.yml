@@ -37,7 +37,7 @@ jobs:
       working-directory: ${{ env.working-directory }}
       
     - name: Install dependencies
-      run: dotnet restore Algorithmic.Windows.csproj
+      run: dotnet restore Algorithmic.Install.csproj
       working-directory: ${{ env.working-directory }}
       
     - name: Execute unit tests
