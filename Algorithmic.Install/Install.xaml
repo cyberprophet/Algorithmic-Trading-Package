@@ -9,7 +9,7 @@
         d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True}"
         WindowStartupLocation="CenterScreen"
         StateChanged="OnStateChanged"
-        Closing="OnClosing"
+        Closing="OnClosing"        
         Style="{StaticResource app}"
         Title="Install">
 

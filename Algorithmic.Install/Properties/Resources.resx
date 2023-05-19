@@ -164,7 +164,7 @@
     <value>pwsh</value>
   </data>
   <data name="PUBLISH" xml:space="preserve">
-    <value>Publish</value>
+    <value>publish</value>
   </data>
   <data name="ROUTE" xml:space="preserve">
     <value>route</value>
