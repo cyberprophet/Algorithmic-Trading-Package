@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 
+using ShareInvest.Services;
+
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -14,30 +16,32 @@ public partial class App : Application
         get =>
 
             new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                                      .AddJsonFile(settings)
+                                      .AddJsonFile(ShareInvest.Properties.Resources.SETTINGS)
                                       .Build();
     }
     protected override void OnStartup(StartupEventArgs e)
     {
+        if (Status.IsAdministrator)
+        {
+            base.OnStartup(e);
+
+            return;
+        }
 #if DEBUG
         foreach (var arg in e.Args)
         {
             Debug.WriteLine(arg);
         }
-        base.OnStartup(e);
 #else
-        const string admin = "Administrator";
-        const string execute = "Execute";
-
         using (var process = new Process
         {
             StartInfo = new ProcessStartInfo
             {
                 WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory,
-                Verb = Configuration.GetConnectionString(admin),
+                Verb = Configuration.GetConnectionString(ShareInvest.Properties.Resources.ADMIN),
                 UseShellExecute = true,
                 FileName = string.Concat(Assembly.GetEntryAssembly()?.ManifestModule.Name[..^4],
-                                         Configuration.GetConnectionString(execute))
+                                         Configuration.GetConnectionString(ShareInvest.Properties.Resources.EXECUTE))
             }
         })
             if (process.Start())
@@ -53,5 +57,4 @@ public partial class App : Application
         Process.GetCurrentProcess().Kill();
 #endif
     }
-    const string settings = "appsettings.json";
 }
