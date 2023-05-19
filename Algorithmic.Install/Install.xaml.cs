@@ -51,6 +51,8 @@ public partial class Install : Window
 
                     return;
             }
+            IsUserClosing = true;
+
             Visibility = Visibility.Hidden;
 
             Close();
@@ -158,7 +160,10 @@ public partial class Install : Window
                     {
                         timer.Stop();
 
-
+                        if (await Status.StartProcess(Properties.Resources.LAUNCHER))
+                        {
+                            Close();
+                        }
                     }
                 }
                 else
@@ -213,7 +218,7 @@ public partial class Install : Window
                 ProductPrivatePart = info.ProductPrivatePart,
                 ProductVersion = info.ProductVersion,
                 Publish = DateTime.Now.Ticks,
-                File = await File.ReadAllBytesAsync(info.FileName)
+                File = await System.IO.File.ReadAllBytesAsync(info.FileName)
             }));
             await client.ExecuteAsync(request, cancellationTokenSource.Token);
         }
@@ -227,7 +232,8 @@ public partial class Install : Window
     }
     void OnClosing(object sender, CancelEventArgs e)
     {
-        if (MessageBoxResult.Cancel.Equals(MessageBox.Show(Properties.Resources.WARNING.Replace('|', '\n'),
+        if (IsUserClosing &&
+            MessageBoxResult.Cancel.Equals(MessageBox.Show(Properties.Resources.WARNING.Replace('|', '\n'),
                                                            Title,
                                                            MessageBoxButton.OKCancel,
                                                            MessageBoxImage.Warning,
@@ -237,7 +243,11 @@ public partial class Install : Window
 
             return;
         }
-        GC.Collect();
+        IsUserClosing = false;
+    }
+    bool IsUserClosing
+    {
+        get; set;
     }
     readonly RestClient client = new()
     {
