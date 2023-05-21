@@ -14,7 +14,8 @@
 		<Product>Algorithmic-Trading</Product>
 		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-		<Version>1.0.0.1</Version>
+		<Version>1.0.0.3</Version>
+		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 
 	<ItemGroup>
