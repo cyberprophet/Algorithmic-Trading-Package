@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Algorithmic.Installer", "Algorithmic.Installer\Algorithmic.Installer.wapproj", "{DBE58974-E3F7-4A33-9285-F19296699191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithmic.Install", "Algorithmic.Install\Algorithmic.Install.csproj", "{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithmic.Install", "Algorithmic.Install\Algorithmic.Install.csproj", "{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +57,8 @@ Global
 		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|ARM.Build.0 = Debug|Any CPU
 		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|ARM64.ActiveCfg = Debug|Any CPU
 		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|x64.Build.0 = Debug|Any CPU
+		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|x64.ActiveCfg = Debug|x64
+		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|x64.Build.0 = Debug|x64
 		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Debug|x86.Build.0 = Debug|Any CPU
 		{1444CF7D-6491-4AAC-84F0-5ADDFE6EA105}.Release|Any CPU.ActiveCfg = Release|Any CPU
