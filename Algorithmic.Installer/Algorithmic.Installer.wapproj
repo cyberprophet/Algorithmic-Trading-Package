@@ -60,14 +60,14 @@
     <DefaultLanguage>ko-KR</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <NoWarn>$(NoWarn);NU1702</NoWarn>
-    <PackageCertificateThumbprint>A1F176F290FA3CF4B63F58679A9075A9E799FF02</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>D09FAEB311FB77C85DF25D72104BEA697078F478</PackageCertificateThumbprint>
     <EntryPointProjectUniqueName>..\Algorithmic.Install\Algorithmic.Install.csproj</EntryPointProjectUniqueName>
     <GenerateAppInstallerFile>True</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
-    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
-    <AppInstallerUri>http://invest.share.enterprises</AppInstallerUri>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <AppInstallerUri>http://invest.share.enterprises/package</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -103,6 +103,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Algorithmic.Installer_TemporaryKey.pfx" />
     <Content Include="Images\Wide310x150Logo.scale-400.png" />
     <Content Include="Images\BadgeLogo.scale-100.png" />
     <Content Include="Images\BadgeLogo.scale-125.png" />
