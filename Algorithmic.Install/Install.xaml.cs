@@ -28,13 +28,6 @@ public partial class Install : Window
         };
         menu.Items.AddRange(new[]
         {
-#if DEBUG
-            new System.Windows.Forms.ToolStripMenuItem
-            {
-                Name = nameof(Properties.Resources.LAUNCHER),
-                Text = Properties.Resources.LAUNCHER
-            },
-#endif
             new System.Windows.Forms.ToolStripMenuItem
             {
                 Name = nameof(Properties.Resources.EXIT),
@@ -109,34 +102,6 @@ public partial class Install : Window
 
         _ = WindowAttribute.SetWindowRgn(menu.Handle, hRgn, true);
 
-        foreach (var process in Process.GetProcessesByName(Properties.Resources.LAUNCHER))
-        {
-#if DEBUG
-            Debug.WriteLine(new
-            {
-                process.Id,
-                process.StartTime
-            });
-#else
-            if (process.MainModule?.FileVersionInfo is FileVersionInfo vi)
-            {
-                if (string.IsNullOrEmpty(vi.OriginalFilename) ||
-                    char.IsLower(vi.OriginalFilename, 0))
-                {
-                    continue;
-                }
-                if (process.WaitForExit(0x400) is false &&
-                    MessageBoxResult.OK == MessageBox.Show(Properties.Resources.EXIST.Replace('|', '\n'),
-                                                           Title,
-                                                           MessageBoxButton.OKCancel,
-                                                           MessageBoxImage.Stop,
-                                                           MessageBoxResult.Cancel))
-                {
-                    process.Kill();
-                }
-            }
-#endif
-        }
         timer.Start();
     }
     async Task InitializeCoreWebView2Async()
@@ -151,19 +116,11 @@ public partial class Install : Window
 
                 if (di.Exists)
                 {
-                    var processes = Process.GetProcessesByName(Properties.Resources.LAUNCHER);
+                    timer.Stop();
 
-                    if (processes.Length == 1 &&
-                        processes[0].MainModule?.FileVersionInfo is FileVersionInfo vi &&
-                        string.IsNullOrEmpty(vi.OriginalFilename) is false &&
-                        char.IsLower(vi.OriginalFilename, 0))
+                    if (await Status.StartProcess(Properties.Resources.LAUNCHER))
                     {
-                        timer.Stop();
-
-                        if (await Status.StartProcess(Properties.Resources.LAUNCHER))
-                        {
-                            Close();
-                        }
+                        Close();
                     }
                 }
                 else
