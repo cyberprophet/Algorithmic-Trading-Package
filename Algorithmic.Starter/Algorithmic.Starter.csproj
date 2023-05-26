@@ -10,11 +10,11 @@
 		<RootNamespace>ShareInvest</RootNamespace>
 		<ApplicationIcon>bird_away.ico</ApplicationIcon>
 		<Authors>cyberprophet</Authors>
-		<Company>ShareInvest</Company>
+		<Company>ShareInvest Corp.</Company>
 		<Product>Algorithmic-Trading</Product>
 		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
 		<AssemblyName>Starter</AssemblyName>
-		<Version>1.9.1.5</Version>
+		<Version>1.3.19.75</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
