@@ -1,8 +1,7 @@
-﻿using ShareInvest.Services;
-
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Reflection;
+using System.Security.Principal;
 using System.Windows;
 
 namespace ShareInvest;
@@ -11,11 +10,14 @@ public partial class App : Application
 {
     protected override void OnStartup(StartupEventArgs e)
     {
-        if (Status.IsAdministrator)
+        using (var cur = WindowsIdentity.GetCurrent())
         {
-            base.OnStartup(e);
+            if (new WindowsPrincipal(cur).IsInRole(WindowsBuiltInRole.Administrator))
+            {
+                base.OnStartup(e);
 
-            return;
+                return;
+            }
         }
         using (var process = new Process
         {
