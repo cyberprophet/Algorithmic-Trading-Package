@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>Controller</AssemblyName>
+		<RootNamespace>ShareInvest</RootNamespace>
+		<Authors>cyberprophet</Authors>
+		<Company>ShareInvest Corp.</Company>
+		<Product>Algorithmic-Trading</Product>
+		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
+		<Version>1.0.5.27</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Google.Cloud.Speech.V1" Version="3.4.0" />
+		<PackageReference Include="Google.Cloud.TextToSpeech.V1" Version="3.2.0" />
+	</ItemGroup>
+
+</Project>
