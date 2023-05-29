@@ -1,28 +1,36 @@
-﻿namespace ShareInvest.Microsoft.Models;
+﻿using Microsoft.ML.Data;
+
+namespace ShareInvest.Microsoft.Models;
 
 public class Chart
 {
+    [LoadColumn(0)]
     public string? Date
     {
         get; set;
     }
-    public int Close
+    [LoadColumn(1)]
+    public double Start
     {
         get; set;
     }
-    public int High
+    [LoadColumn(2)]
+    public double High
     {
         get; set;
     }
-    public int Low
+    [LoadColumn(3)]
+    public double Low
     {
         get; set;
     }
-    public int Start
+    [LoadColumn(4)]
+    public double Close
     {
         get; set;
     }
-    public long Volume
+    [LoadColumn(5)]
+    public double Volume
     {
         get; set;
     }
