@@ -2,35 +2,37 @@
 
 namespace ShareInvest.Microsoft.Models;
 
-public class Chart
+public class InputChart
 {
     [LoadColumn(0)]
     public string? Date
     {
         get; set;
     }
+    /*
     [LoadColumn(1)]
-    public double Start
+    public float Start
     {
         get; set;
     }
     [LoadColumn(2)]
-    public double High
+    public float High
     {
         get; set;
     }
     [LoadColumn(3)]
-    public double Low
-    {
-        get; set;
-    }
-    [LoadColumn(4)]
-    public double Close
+    public float Low
     {
         get; set;
     }
     [LoadColumn(5)]
-    public double Volume
+    public float Volume
+    {
+        get; set;
+    }
+    */
+    [LoadColumn(4)]
+    public float Close
     {
         get; set;
     }
