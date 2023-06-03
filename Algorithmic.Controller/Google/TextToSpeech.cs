@@ -9,18 +9,8 @@ public class TextToSpeech
 {
     public async Task<Stream> SynthesizeSpeechAsync(Stream stream, string text)
     {
-        foreach (var voice in (await tts.ListVoicesAsync(VoiceSelection.LanguageCode)).Voices)
-        {
-            if (voice.SsmlGender == VoiceSelection.SsmlGender)
-            {
-                VoiceSelection.Name = voice.Name;
+        VoiceSelection.Name = await SelectVoice();
 
-                if (stream.Length % 3 == DateTime.Now.Ticks % 3)
-                {
-                    break;
-                }
-            }
-        }
         var input = new SynthesisInput
         {
             Text = text,
@@ -31,6 +21,10 @@ public class TextToSpeech
 
         stream.Position = 0;
 
+        if (LanguageCodes.Korean.SouthKorea != VoiceSelection.LanguageCode)
+        {
+            Voices = null;
+        }
         return stream;
     }
     public VoiceSelectionParams VoiceSelection
@@ -41,7 +35,8 @@ public class TextToSpeech
     {
         VoiceSelection = new VoiceSelectionParams
         {
-            LanguageCode = LanguageCodes.English.UnitedStates
+            LanguageCode = LanguageCodes.English.UnitedStates,
+            SsmlGender = SsmlVoiceGender.Male
         };
         config = new AudioConfig
         {
@@ -52,6 +47,39 @@ public class TextToSpeech
             JsonCredentials = Encoding.UTF8.GetString(json)
         }
         .Build();
+    }
+    async Task<string> SelectVoice()
+    {
+        if (Voices != null && Voices.Any(Predicate))
+        {
+            var voices = Voices.Where(Predicate).ToArray();
+
+            return voices[DateTime.Now.Second % voices.Length].Name;
+        }
+        await GetVoicesAsync();
+
+        return await SelectVoice();
+    }
+    async Task GetVoicesAsync()
+    {
+        var voices = (await tts.ListVoicesAsync(VoiceSelection.LanguageCode)).Voices;
+
+        if (Voices != null)
+        {
+            Voices = Voices.Union(voices);
+        }
+        else
+        {
+            Voices = voices;
+        }
+    }
+    bool Predicate(Voice p) =>
+
+        VoiceSelection.SsmlGender == p.SsmlGender && p.LanguageCodes.Any(VoiceSelection.LanguageCode.Equals);
+
+    IEnumerable<Voice>? Voices
+    {
+        get; set;
     }
     readonly AudioConfig config;
     readonly TextToSpeechClient tts;

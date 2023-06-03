@@ -1,14 +1,12 @@
 ﻿using Microsoft.ML;
 
-using ShareInvest.Microsoft.Models;
-
 namespace ShareInvest.Microsoft;
 
 public abstract class ModelBuilder : IDisposable
 {
     public abstract void Evaluate(MLContext context, ITransformer model);
 
-    public abstract void Learning(IEnumerable<InputChart> enumerable);
+    public abstract void Learning<T>(IEnumerable<T> enumerable) where T : class;
 
     public virtual void Dispose() => GC.SuppressFinalize(this);
 

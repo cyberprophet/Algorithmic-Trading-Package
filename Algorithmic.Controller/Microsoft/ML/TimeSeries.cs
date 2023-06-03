@@ -11,32 +11,10 @@ public class TimeSeries : ModelBuilder
     {
         throw new NotImplementedException();
     }
-    public override void Learning(IEnumerable<InputChart> enumerable)
+    public override void Learning<T>(IEnumerable<T> enumerable) where T : class
     {
-        IDataView dataView = context.Data.LoadFromEnumerable<InputChart>(enumerable);
-        /*
-        var columnPair = new[]
-        {
-            new InputOutputColumnPair(nameof(InputChart.Start)),
-            new InputOutputColumnPair(nameof(InputChart.High)),
-            new InputOutputColumnPair(nameof(InputChart.Low)),
-            new InputOutputColumnPair(nameof(InputChart.Close)),
-            new InputOutputColumnPair(nameof(InputChart.Volume))
-        };
-        var dataSplit = context.Data.TrainTestSplit(dataView, testFraction: 0.2);
+        IDataView dataView = context.Data.LoadFromEnumerable(enumerable);
 
-        IDataView trainDataView = dataSplit.TrainSet;
-        IDataView testDataView = dataSplit.TestSet;
-
-        var concatenate = context.Transforms.Concatenate("Features",
-                                                         nameof(InputChart.Start),
-                                                         nameof(InputChart.High),
-                                                         nameof(InputChart.Low),
-                                                         nameof(InputChart.Close),
-                                                         nameof(InputChart.Volume));
-
-        var normalize = context.Transforms.NormalizeMinMax(columnPair, fixZero: false);
-        */
         IEstimator<ITransformer> pipeline =
 
             context.Forecasting.ForecastBySsa(outputColumnName: nameof(OutputChart.ForecastedPrices),
