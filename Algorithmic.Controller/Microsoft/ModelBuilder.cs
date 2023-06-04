@@ -4,7 +4,7 @@ namespace ShareInvest.Microsoft;
 
 public abstract class ModelBuilder : IDisposable
 {
-    public abstract void Evaluate(MLContext context, ITransformer model);
+    public abstract dynamic? Evaluate<T>(T data) where T : class;
 
     public abstract void Learning<T>(IEnumerable<T> enumerable) where T : class;
 
