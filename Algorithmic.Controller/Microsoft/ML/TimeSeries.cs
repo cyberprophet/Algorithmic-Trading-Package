@@ -7,7 +7,7 @@ namespace ShareInvest.Microsoft.ML;
 
 public class TimeSeries : ModelBuilder
 {
-    public override dynamic? Evaluate<T>(T data) where T : class
+    public override void Evaluate(IDataView data)
     {
         ITransformer model;
 
@@ -21,11 +21,10 @@ public class TimeSeries : ModelBuilder
         {
             var prediction = engine.Predict(input, horizon: 2);
 
-            return prediction.ForecastedPrices?[0];
+            Console.WriteLine(prediction.ForecastedPrices?[0]);
         }
-        return null;
     }
-    public override void Learning<T>(IEnumerable<T> enumerable) where T : class
+    public override IDataView Learning<T>(IEnumerable<T> enumerable) where T : class
     {
         IDataView dataView = context.Data.LoadFromEnumerable(enumerable);
 
@@ -46,8 +45,10 @@ public class TimeSeries : ModelBuilder
         var engine = model.CreateTimeSeriesEngine<InputChart, OutputChart>(context);
 
         engine.CheckPoint(context, path);
+
+        return dataView;
     }
-    public TimeSeries(string code, int? seed = null) : base(seed)
+    public TimeSeries(string code, int? seed = null) : base(seed, null)
     {
         var path = Path.Combine(Environment.CurrentDirectory, nameof(Models), nameof(TimeSeries));
 
