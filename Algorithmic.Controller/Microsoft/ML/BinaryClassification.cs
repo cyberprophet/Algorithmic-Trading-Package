@@ -38,8 +38,6 @@ public class BinaryClassification : ModelBuilder
 
         var pipeline = estimator.Append(context.BinaryClassification.Trainers.SdcaLogisticRegression(options));
 
-        Console.WriteLine(pipeline.Preview(dataView));
-
         return pipeline.Fit(splitDataView.TrainSet).Transform(splitDataView.TestSet);
     }
     public BinaryClassification(int? seed = null, int? gpuDeviceId = null) : base(seed, gpuDeviceId)
