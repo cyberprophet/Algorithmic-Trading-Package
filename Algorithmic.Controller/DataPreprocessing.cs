@@ -64,7 +64,7 @@ public class DataPreprocessing
                     break;
                 }
             }
-            if (conditionData.Satisfy && inputCharts[^1].DateTime is string referenceDate)
+            if (conditionData.Satisfy && Environment.ProcessorCount < 8 && inputCharts[^1].DateTime is string referenceDate)
             {
                 yield return referenceDate;
             }
