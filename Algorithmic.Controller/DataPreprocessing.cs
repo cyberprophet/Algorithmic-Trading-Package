@@ -6,7 +6,7 @@ public class DataPreprocessing
 {
     public event EventHandler<InputConditionData>? Send;
 
-    public void StartProcess(double riseRate)
+    public IEnumerable<string> StartProcess(double riseRate)
     {
         while (list.Count > 125)
         {
@@ -63,6 +63,10 @@ public class DataPreprocessing
 
                     break;
                 }
+            }
+            if (conditionData.Satisfy && inputCharts[^1].DateTime is string referenceDate)
+            {
+                yield return referenceDate;
             }
             for (int i = 0; i < inputCharts.Length; i++)
             {
