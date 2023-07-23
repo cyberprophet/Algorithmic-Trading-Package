@@ -7,24 +7,20 @@ namespace ShareInvest.Microsoft.ML;
 
 public class TimeSeries : ModelBuilder
 {
-    public override void Evaluate(IDataView data)
+    public override Result Prediction<T, Result>(ITransformer model, T data) where T : class
     {
-        ITransformer model;
+        var engine = model.CreateTimeSeriesEngine<InputChart, OutputChart>(context);
 
+        return (engine.Predict((data as InputChart)!) as Result)!;
+    }
+    public override void Evaluate(ITransformer model)
+    {
         using (var file = File.OpenRead(path))
         {
             model = context.Model.Load(file, out DataViewSchema schema);
         }
-        var engine = model.CreateTimeSeriesEngine<InputChart, OutputChart>(context);
-
-        if (data is InputChart input)
-        {
-            var prediction = engine.Predict(input, horizon: 2);
-
-            Console.WriteLine(prediction.ForecastedPrices?[0]);
-        }
     }
-    public override IDataView Learning<T>(IEnumerable<T> enumerable) where T : class
+    public override ITransformer Learning<T>(IEnumerable<T> enumerable) where T : class
     {
         IDataView dataView = context.Data.LoadFromEnumerable(enumerable);
 
@@ -46,7 +42,7 @@ public class TimeSeries : ModelBuilder
 
         engine.CheckPoint(context, path);
 
-        return dataView;
+        return model;
     }
     public TimeSeries(string code, int? seed = null) : base(seed, null)
     {
