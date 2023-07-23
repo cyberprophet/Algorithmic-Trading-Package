@@ -4,9 +4,11 @@ namespace ShareInvest.Microsoft;
 
 public abstract class ModelBuilder : IDisposable
 {
-    public abstract void Evaluate(IDataView predictions);
+    public abstract TDst Prediction<TSrc, TDst>(ITransformer model, TSrc data) where TSrc : class where TDst : class;
 
-    public abstract IDataView Learning<T>(IEnumerable<T> enumerable) where T : class;
+    public abstract void Evaluate(ITransformer model);
+
+    public abstract ITransformer Learning<T>(IEnumerable<T> enumerable) where T : class;
 
     public virtual void Dispose() => GC.SuppressFinalize(this);
 
