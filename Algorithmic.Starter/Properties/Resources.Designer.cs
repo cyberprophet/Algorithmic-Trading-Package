@@ -89,6 +89,15 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   start nginx과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string COMMAND {
+            get {
+                return ResourceManager.GetString("COMMAND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static System.Drawing.Icon DOWNLOAD {
@@ -132,6 +141,33 @@ namespace ShareInvest.Properties {
             get {
                 object obj = ResourceManager.GetObject("IDLE", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Get-Content -Path C:\www\nginx-1.24.0\logs\access.log -Wait과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string LOG {
+            get {
+                return ResourceManager.GetString("LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   nginx-1.24.0과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string NGINX {
+            get {
+                return ResourceManager.GetString("NGINX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   pwsh과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string POWERSHELL {
+            get {
+                return ResourceManager.GetString("POWERSHELL", resourceCulture);
             }
         }
         

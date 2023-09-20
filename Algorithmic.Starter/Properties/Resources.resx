@@ -127,6 +127,9 @@
   <data name="BLACK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_black.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="COMMAND" xml:space="preserve">
+    <value>start nginx</value>
+  </data>
   <data name="DOWNLOAD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_download.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,6 +144,15 @@
   </data>
   <data name="IDLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_white.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOG" xml:space="preserve">
+    <value>Get-Content -Path C:\www\nginx-1.24.0\logs\access.log -Wait</value>
+  </data>
+  <data name="NGINX" xml:space="preserve">
+    <value>nginx-1.24.0</value>
+  </data>
+  <data name="POWERSHELL" xml:space="preserve">
+    <value>pwsh</value>
   </data>
   <data name="REGISTER" xml:space="preserve">
     <value>시작프로그램 등록</value>

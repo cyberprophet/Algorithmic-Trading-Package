@@ -100,6 +100,10 @@ public partial class Starter : Window
 
                 if (Server.Activate())
                 {
+                    if (Nginx.BeOutOperation)
+                    {
+                        Nginx.StartProcess();
+                    }
                     Server.StartProcess();
 
                     timer.Interval = new TimeSpan(0, 0, 1);
