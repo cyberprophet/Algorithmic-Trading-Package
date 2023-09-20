@@ -7,9 +7,9 @@ using System.IO;
 
 namespace ShareInvest.Services;
 
-class Server
+static class Server
 {
-    internal bool Activate()
+    internal static bool Activate()
     {
         var files = new Stack<Models.File>();
         var parent = Directory.GetParent(Environment.CurrentDirectory);
@@ -20,7 +20,7 @@ class Server
         }
         foreach (var file in Directory.GetFiles(parent.FullName, Resources.EXE, SearchOption.AllDirectories))
         {
-            if (!nameof(Server).Equals(Path.GetFileNameWithoutExtension(file), StringComparison.OrdinalIgnoreCase))
+            if (!nameof(Resources.ANT).Equals(Path.GetFileNameWithoutExtension(file), StringComparison.OrdinalIgnoreCase))
             {
                 continue;
             }
@@ -103,15 +103,15 @@ class Server
         }
         return false;
     }
-    internal bool Update()
+    internal static bool Update()
     {
-        foreach (var process in Process.GetProcessesByName(nameof(Server)))
+        foreach (var process in Process.GetProcessesByName(nameof(Resources.ANT)))
         {
             process.Kill(IsActived);
         }
         return Activate();
     }
-    internal void StartProcess()
+    internal static void StartProcess()
     {
         var workingDirectory = Directory.GetParent(Environment.CurrentDirectory);
 
@@ -120,7 +120,7 @@ class Server
             StartInfo = new ProcessStartInfo
             {
                 UseShellExecute = true,
-                FileName = string.Concat(nameof(Server), Resources.EXE[1..]),
+                FileName = string.Concat(nameof(Resources.ANT), Resources.EXE[1..]),
                 WorkingDirectory = workingDirectory?.FullName,
                 Verb = Resources.ADMIN
             }
@@ -130,8 +130,8 @@ class Server
                 GC.Collect();
             }
     }
-    internal bool IsActived
+    internal static bool IsActived
     {
-        get => Process.GetProcessesByName(nameof(Server)).Length == 1;
+        get => Process.GetProcessesByName(nameof(Resources.ANT)).Length == 1;
     }
 }

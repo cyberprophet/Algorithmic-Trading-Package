@@ -70,11 +70,20 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   동학개미운동과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ANT {
+            get {
+                return ResourceManager.GetString("ANT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Icon bird_alert {
+        internal static System.Drawing.Icon BLACK {
             get {
-                object obj = ResourceManager.GetObject("bird_alert", resourceCulture);
+                object obj = ResourceManager.GetObject("BLACK", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -82,49 +91,9 @@ namespace ShareInvest.Properties {
         /// <summary>
         ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Icon bird_awake {
+        internal static System.Drawing.Icon DOWNLOAD {
             get {
-                object obj = ResourceManager.GetObject("bird_awake", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon bird_away {
-            get {
-                object obj = ResourceManager.GetObject("bird_away", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon bird_idle {
-            get {
-                object obj = ResourceManager.GetObject("bird_idle", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon bird_invisible {
-            get {
-                object obj = ResourceManager.GetObject("bird_invisible", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon bird_sleep {
-            get {
-                object obj = ResourceManager.GetObject("bird_sleep", resourceCulture);
+                object obj = ResourceManager.GetObject("DOWNLOAD", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -157,6 +126,16 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon IDLE {
+            get {
+                object obj = ResourceManager.GetObject("IDLE", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   시작프로그램 등록과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string REGISTER {
@@ -175,15 +154,6 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   Algorithmic-Trading과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string TITLE {
-            get {
-                return ResourceManager.GetString("TITLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   시작프로그램 해제과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string UNREGISTER {
@@ -198,6 +168,16 @@ namespace ShareInvest.Properties {
         internal static string UPDATE {
             get {
                 return ResourceManager.GetString("UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon UPLOAD {
+            get {
+                object obj = ResourceManager.GetObject("UPLOAD", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

@@ -35,10 +35,7 @@ public partial class App : Application
             }
             else
             {
-                MessageBox.Show(process.StartInfo.WorkingDirectory,
-                                process.ProcessName,
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error);
+                MessageBox.Show(process.StartInfo.WorkingDirectory, process.ProcessName, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         Process.GetCurrentProcess().Kill();
     }

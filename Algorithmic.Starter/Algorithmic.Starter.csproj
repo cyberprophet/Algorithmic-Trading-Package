@@ -8,12 +8,12 @@
 		<UseWindowsForms>True</UseWindowsForms>
 		<SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
 		<RootNamespace>ShareInvest</RootNamespace>
-		<ApplicationIcon>server_home.ico</ApplicationIcon>
+		<ApplicationIcon>analytics.ico</ApplicationIcon>
 		<Authors>cyberprophet</Authors>
 		<Company>ShareInvest Corp.</Company>
-		<Product>Algorithmic-Trading</Product>
+		<Product>동학개미운동</Product>
 		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
-		<AssemblyName>Ant.Starter</AssemblyName>
+		<AssemblyName>Starter</AssemblyName>
 		<Version>23.9.20.1</Version>
 		<PackageId>Starter</PackageId>
 		<Title>ANT</Title>
@@ -22,7 +22,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="server_home.ico" />
+		<Content Include="analytics.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
