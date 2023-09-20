@@ -73,9 +73,7 @@ public partial class Starter : Window
             }
             if (nameof(Properties.Resources.REGISTER).Equals(e.ClickedItem?.Name))
             {
-                e.ClickedItem.Text =
-
-                    Properties.Resources.UNREGISTER.Equals(e.ClickedItem.Text) ? Properties.Resources.REGISTER : Properties.Resources.UNREGISTER;
+                e.ClickedItem.Text = Properties.Resources.UNREGISTER.Equals(e.ClickedItem.Text) ? Properties.Resources.REGISTER : Properties.Resources.UNREGISTER;
 
                 var fileName = string.Concat(Assembly.GetEntryAssembly()?.ManifestModule.Name[..^4], Properties.Resources.EXE[1..]);
 
@@ -133,12 +131,7 @@ public partial class Starter : Window
     }
     void OnClosing(object sender, CancelEventArgs e)
     {
-        if (IsUserClosing &&
-            MessageBoxResult.Cancel.Equals(MessageBox.Show(Properties.Resources.WARNING.Replace('|', '\n'),
-                                                           Title,
-                                                           MessageBoxButton.OKCancel,
-                                                           MessageBoxImage.Warning,
-                                                           MessageBoxResult.Cancel)))
+        if (IsUserClosing && MessageBoxResult.Cancel.Equals(MessageBox.Show(Properties.Resources.WARNING.Replace('|', '\n'), Title, MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.Cancel)))
         {
             e.Cancel = true;
 
