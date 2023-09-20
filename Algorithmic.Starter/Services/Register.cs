@@ -16,13 +16,14 @@ class Register
         bool result = false;
 
         using (var regKey = Registry.CurrentUser.OpenSubKey(reg, true))
-
+        {
             if (regKey != null)
             {
                 result = regKey.GetValue(program) != null;
 
                 regKey.Close();
             }
+        }
         return result;
     }
     internal string? AddStartupProgram(string program, string fileName)
@@ -30,6 +31,7 @@ class Register
         using (var regKey = Registry.CurrentUser.OpenSubKey(reg, true))
         {
             if (regKey != null)
+            {
                 try
                 {
                     if (IsWritable)
@@ -49,6 +51,7 @@ class Register
                 {
                     return ex.Message;
                 }
+            }
         }
         return null;
     }

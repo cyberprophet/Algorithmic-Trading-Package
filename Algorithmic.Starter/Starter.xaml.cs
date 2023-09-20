@@ -38,19 +38,16 @@ public partial class Starter : Window
         });
         icons = new[]
         {
-             Properties.Resources.bird_sleep,
-             Properties.Resources.bird_idle,
-             Properties.Resources.bird_awake,
-             Properties.Resources.bird_alert,
-             Properties.Resources.bird_away,
-             Properties.Resources.bird_invisible
+             Properties.Resources.UPLOAD,
+             Properties.Resources.DOWNLOAD,
+             Properties.Resources.IDLE
         };
         notifyIcon = new System.Windows.Forms.NotifyIcon
         {
             ContextMenuStrip = menu,
             Visible = true,
-            Text = Properties.Resources.TITLE,
-            Icon = icons[^1],
+            Text = Properties.Resources.ANT,
+            Icon = Properties.Resources.BLACK,
             BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
         };
         timer = new DispatcherTimer
@@ -61,9 +58,9 @@ public partial class Starter : Window
         {
             if (nameof(Properties.Resources.UPDATE).Equals(e.ClickedItem?.Name))
             {
-                if (server.Update())
+                if (Server.Update())
                 {
-                    server.StartProcess();
+                    Server.StartProcess();
                 }
                 else
                 {
@@ -73,15 +70,13 @@ public partial class Starter : Window
             }
             if (nameof(Properties.Resources.REGISTER).Equals(e.ClickedItem?.Name))
             {
-                e.ClickedItem.Text =
-
-                    Properties.Resources.UNREGISTER.Equals(e.ClickedItem.Text) ? Properties.Resources.REGISTER : Properties.Resources.UNREGISTER;
+                e.ClickedItem.Text = Properties.Resources.UNREGISTER.Equals(e.ClickedItem.Text) ? Properties.Resources.REGISTER : Properties.Resources.UNREGISTER;
 
                 var fileName = string.Concat(Assembly.GetEntryAssembly()?.ManifestModule.Name[..^4], Properties.Resources.EXE[1..]);
 
                 register.IsWritable = register.IsWritable is false;
 
-                var res = register.AddStartupProgram(Properties.Resources.TITLE, fileName);
+                var res = register.AddStartupProgram(Properties.Resources.ANT, fileName);
 
                 if (string.IsNullOrEmpty(res) is false && notifyIcon != null)
                 {
@@ -95,17 +90,21 @@ public partial class Starter : Window
         };
         timer.Tick += (sender, e) =>
         {
-            if (server.IsActived)
+            if (Server.IsActived)
             {
-                notifyIcon.Icon = icons[DateTime.Now.Second % 5];
+                notifyIcon.Icon = icons[DateTime.Now.Second % 2];
             }
             else
             {
                 timer.Interval = new TimeSpan(1, 1, 1, 0xC);
 
-                if (server.Activate())
+                if (Server.Activate())
                 {
-                    server.StartProcess();
+                    if (Nginx.BeOutOperation)
+                    {
+                        Nginx.StartProcess();
+                    }
+                    Server.StartProcess();
 
                     timer.Interval = new TimeSpan(0, 0, 1);
                 }
@@ -133,12 +132,7 @@ public partial class Starter : Window
     }
     void OnClosing(object sender, CancelEventArgs e)
     {
-        if (IsUserClosing &&
-            MessageBoxResult.Cancel.Equals(MessageBox.Show(Properties.Resources.WARNING.Replace('|', '\n'),
-                                                           Title,
-                                                           MessageBoxButton.OKCancel,
-                                                           MessageBoxImage.Warning,
-                                                           MessageBoxResult.Cancel)))
+        if (IsUserClosing && MessageBoxResult.Cancel.Equals(MessageBox.Show(Properties.Resources.WARNING.Replace('|', '\n'), Title, MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.Cancel)))
         {
             e.Cancel = true;
 
@@ -154,12 +148,11 @@ public partial class Starter : Window
     }
     bool IsRegistered
     {
-        get => register.GetValue(Properties.Resources.TITLE);
+        get => register.GetValue(Properties.Resources.ANT);
     }
     readonly System.Windows.Forms.ContextMenuStrip menu;
     readonly System.Windows.Forms.NotifyIcon notifyIcon;
     readonly System.Drawing.Icon[] icons;
     readonly DispatcherTimer timer;
-    readonly Server server = new();
     readonly Register register = new(Properties.Resources.RUN);
 }

@@ -120,24 +120,18 @@
   <data name="ADMIN" xml:space="preserve">
     <value>runas</value>
   </data>
+  <data name="ANT" xml:space="preserve">
+    <value>동학개미운동</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bird_alert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_alert.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BLACK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_black.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bird_awake" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_awake.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="COMMAND" xml:space="preserve">
+    <value>start nginx</value>
   </data>
-  <data name="bird_away" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_away.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bird_idle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_idle.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bird_invisible" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_invisible.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bird_sleep" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_sleep.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DOWNLOAD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_download.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>major problem arises.</value>
@@ -148,20 +142,32 @@
   <data name="EXIT" xml:space="preserve">
     <value>시스템 종료</value>
   </data>
+  <data name="IDLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_white.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOG" xml:space="preserve">
+    <value>Get-Content -Path C:\www\nginx-1.24.0\logs\access.log -Wait</value>
+  </data>
+  <data name="NGINX" xml:space="preserve">
+    <value>nginx-1.24.0</value>
+  </data>
+  <data name="POWERSHELL" xml:space="preserve">
+    <value>pwsh</value>
+  </data>
   <data name="REGISTER" xml:space="preserve">
     <value>시작프로그램 등록</value>
   </data>
   <data name="RUN" xml:space="preserve">
     <value>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</value>
   </data>
-  <data name="TITLE" xml:space="preserve">
-    <value>Algorithmic-Trading</value>
-  </data>
   <data name="UNREGISTER" xml:space="preserve">
     <value>시작프로그램 해제</value>
   </data>
   <data name="UPDATE" xml:space="preserve">
     <value>Version Upgrade</value>
+  </data>
+  <data name="UPLOAD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_upload.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WARNING" xml:space="preserve">
     <value>It can be fatal to data when manually terminated.||Do you really want to end it?</value>

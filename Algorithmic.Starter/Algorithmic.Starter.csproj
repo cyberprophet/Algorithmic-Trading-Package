@@ -6,19 +6,30 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>True</UseWPF>
 		<UseWindowsForms>True</UseWindowsForms>
-		<SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
 		<RootNamespace>ShareInvest</RootNamespace>
-		<ApplicationIcon>bird_away.ico</ApplicationIcon>
+		<ApplicationIcon>analytics.ico</ApplicationIcon>
 		<Authors>cyberprophet</Authors>
 		<Company>ShareInvest Corp.</Company>
-		<Product>Algorithmic-Trading</Product>
+		<Product>동학개미운동</Product>
 		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
 		<AssemblyName>Starter</AssemblyName>
-		<Version>1.3.19.75</Version>
+		<Version>23.9.20.1</Version>
+		<PackageId>Starter</PackageId>
+		<Title>ANT</Title>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="bird_away.ico" />
+		<Content Include="analytics.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\ANT\LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>

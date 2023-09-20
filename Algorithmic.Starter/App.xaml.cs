@@ -26,8 +26,7 @@ public partial class App : Application
                 WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory,
                 Verb = ShareInvest.Properties.Resources.ADMIN,
                 UseShellExecute = true,
-                FileName = string.Concat(Assembly.GetEntryAssembly()?.ManifestModule.Name[..^4],
-                                         ShareInvest.Properties.Resources.EXE[1..])
+                FileName = string.Concat(Assembly.GetEntryAssembly()?.ManifestModule.Name[..^4], ShareInvest.Properties.Resources.EXE[1..])
             }
         })
             if (process.Start())
@@ -35,11 +34,9 @@ public partial class App : Application
                 GC.Collect();
             }
             else
-                MessageBox.Show(process.StartInfo.WorkingDirectory,
-                                process.ProcessName,
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error);
-
+            {
+                MessageBox.Show(process.StartInfo.WorkingDirectory, process.ProcessName, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         Process.GetCurrentProcess().Kill();
     }
 }
