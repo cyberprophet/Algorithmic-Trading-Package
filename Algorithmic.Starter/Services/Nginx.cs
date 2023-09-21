@@ -10,30 +10,40 @@ static class Nginx
 {
     internal static bool BeOutOperation
     {
-        get => Process.GetProcessesByName(string.Concat(nameof(Nginx), Resources.EXE[1..])).Length == 0;
+        get => Process.GetProcessesByName(nameof(Nginx)).Length == 0;
     }
     internal static void StartProcess()
     {
-        if (Directory.GetParent(Environment.CurrentDirectory) is DirectoryInfo workingDirectory)
+        if (Directory.GetParent(Resources.PATH) is DirectoryInfo workingDirectory)
         {
-            var fullName = Directory.GetParent(workingDirectory.FullName)?.FullName ?? string.Empty;
-
             using (var process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
                     UseShellExecute = true,
                     FileName = string.Concat(nameof(Nginx), Resources.EXE[1..]),
-                    WorkingDirectory = Path.Combine(fullName, Resources.NGINX)
+                    WorkingDirectory = workingDirectory.FullName
                 }
             })
-            {
                 if (process.Start())
                 {
-
+                    using (var p = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = Resources.POWERSHELL,
+                            UseShellExecute = false,
+                            RedirectStandardInput = true,
+                            WorkingDirectory = Resources.PATH
+                        }
+                    })
+                        if (p.Start())
+                        {
+                            p.StandardInput.WriteLine(Resources.LOG + Environment.NewLine);
+                            p.StandardInput.Close();
+                        }
+                    GC.Collect();
                 }
-                GC.Collect();
-            }
         }
     }
 }
