@@ -145,7 +145,7 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   Get-Content -Path C:\www\nginx-1.24.0\logs\access.log -Wait과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Get-Content -Path access.log -Wait과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string LOG {
             get {
@@ -159,6 +159,15 @@ namespace ShareInvest.Properties {
         internal static string NGINX {
             get {
                 return ResourceManager.GetString("NGINX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   C:\www\nginx-1.24.0\logs과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string PATH {
+            get {
+                return ResourceManager.GetString("PATH", resourceCulture);
             }
         }
         

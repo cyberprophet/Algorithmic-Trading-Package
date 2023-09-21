@@ -146,10 +146,13 @@
     <value>..\Resources\server_white.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LOG" xml:space="preserve">
-    <value>Get-Content -Path C:\www\nginx-1.24.0\logs\access.log -Wait</value>
+    <value>Get-Content -Path access.log -Wait</value>
   </data>
   <data name="NGINX" xml:space="preserve">
     <value>nginx-1.24.0</value>
+  </data>
+  <data name="PATH" xml:space="preserve">
+    <value>C:\www\nginx-1.24.0\logs</value>
   </data>
   <data name="POWERSHELL" xml:space="preserve">
     <value>pwsh</value>
