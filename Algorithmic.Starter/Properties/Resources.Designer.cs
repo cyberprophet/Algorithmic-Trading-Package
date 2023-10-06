@@ -154,7 +154,16 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   F:\www\nginx-1.24.0과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   logs과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string LOG {
+            get {
+                return ResourceManager.GetString("LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   F:\nginx-1.24.0과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string NGINX {
             get {
@@ -168,15 +177,6 @@ namespace ShareInvest.Properties {
         internal static string NOTICE {
             get {
                 return ResourceManager.GetString("NOTICE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   logs과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string PATH {
-            get {
-                return ResourceManager.GetString("PATH", resourceCulture);
             }
         }
         

@@ -35,7 +35,7 @@ static class Nginx
                             FileName = Resources.POWERSHELL,
                             UseShellExecute = false,
                             RedirectStandardInput = true,
-                            WorkingDirectory = Path.Combine(Resources.NGINX, Resources.PATH)
+                            WorkingDirectory = Path.Combine(Resources.NGINX, Resources.LOG)
                         }
                     })
                     {

@@ -148,14 +148,14 @@
   <data name="IDLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_white.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LOG" xml:space="preserve">
+    <value>logs</value>
+  </data>
   <data name="NGINX" xml:space="preserve">
-    <value>F:\www\nginx-1.24.0</value>
+    <value>F:\nginx-1.24.0</value>
   </data>
   <data name="NOTICE" xml:space="preserve">
     <value>major problem arises.</value>
-  </data>
-  <data name="PATH" xml:space="preserve">
-    <value>logs</value>
   </data>
   <data name="POWERSHELL" xml:space="preserve">
     <value>pwsh</value>
