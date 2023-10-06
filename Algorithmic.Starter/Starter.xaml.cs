@@ -64,7 +64,7 @@ public partial class Starter : Window
                 }
                 else
                 {
-                    notifyIcon.Text = Properties.Resources.ERROR;
+                    notifyIcon.Text = Properties.Resources.NOTICE;
                 }
                 return;
             }
@@ -110,7 +110,7 @@ public partial class Starter : Window
                 }
                 else
                 {
-                    notifyIcon.Text = Properties.Resources.ERROR;
+                    notifyIcon.Text = Properties.Resources.NOTICE;
                 }
                 notifyIcon.Icon = icons[^1];
             }
