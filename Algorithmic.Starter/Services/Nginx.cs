@@ -27,21 +27,26 @@ static class Nginx
             })
                 if (process.Start())
                 {
-                    using (var p = new Process
+                    foreach (var command in new[] { Resources.ACCESS, Resources.ERROR })
                     {
-                        StartInfo = new ProcessStartInfo
+                        using (var p = new Process
                         {
-                            FileName = Resources.POWERSHELL,
-                            UseShellExecute = false,
-                            RedirectStandardInput = true,
-                            WorkingDirectory = Resources.PATH
-                        }
-                    })
-                        if (p.Start())
+                            StartInfo = new ProcessStartInfo
+                            {
+                                FileName = Resources.POWERSHELL,
+                                UseShellExecute = false,
+                                RedirectStandardInput = true,
+                                WorkingDirectory = Resources.PATH
+                            }
+                        })
                         {
-                            p.StandardInput.WriteLine(Resources.LOG + Environment.NewLine);
-                            p.StandardInput.Close();
+                            if (p.Start())
+                            {
+                                p.StandardInput.WriteLine(command + Environment.NewLine);
+                                p.StandardInput.Close();
+                            }
                         }
+                    }
                     GC.Collect();
                 }
         }
