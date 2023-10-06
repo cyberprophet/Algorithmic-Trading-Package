@@ -2,6 +2,7 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace ShareInvest.Services;
 
@@ -34,7 +35,7 @@ static class Nginx
                             FileName = Resources.POWERSHELL,
                             UseShellExecute = false,
                             RedirectStandardInput = true,
-                            WorkingDirectory = Resources.PATH
+                            WorkingDirectory = Path.Combine(Resources.NGINX, Resources.PATH)
                         }
                     })
                     {

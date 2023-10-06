@@ -154,7 +154,7 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   C:\www\nginx-1.24.0과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   F:\www\nginx-1.24.0과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string NGINX {
             get {
@@ -172,7 +172,7 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   F:\logs과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   logs과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string PATH {
             get {
