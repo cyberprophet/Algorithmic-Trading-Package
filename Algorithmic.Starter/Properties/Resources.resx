@@ -166,6 +166,9 @@
   <data name="RUN" xml:space="preserve">
     <value>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</value>
   </data>
+  <data name="SECURITIES" xml:space="preserve">
+    <value>Kiwoom.exe</value>
+  </data>
   <data name="UNREGISTER" xml:space="preserve">
     <value>시작프로그램 해제</value>
   </data>
@@ -177,5 +180,8 @@
   </data>
   <data name="WARNING" xml:space="preserve">
     <value>It can be fatal to data when manually terminated.||Do you really want to end it?</value>
+  </data>
+  <data name="X86" xml:space="preserve">
+    <value>C:\Program Files (x86)</value>
   </data>
 </root>
