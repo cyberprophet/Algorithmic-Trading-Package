@@ -208,6 +208,15 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   Kiwoom.exe과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string SECURITIES {
+            get {
+                return ResourceManager.GetString("SECURITIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   시작프로그램 해제과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string UNREGISTER {
@@ -241,6 +250,15 @@ namespace ShareInvest.Properties {
         internal static string WARNING {
             get {
                 return ResourceManager.GetString("WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   C:\Program Files (x86)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string X86 {
+            get {
+                return ResourceManager.GetString("X86", resourceCulture);
             }
         }
     }

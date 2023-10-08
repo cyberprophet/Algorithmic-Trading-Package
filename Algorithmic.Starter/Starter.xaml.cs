@@ -92,6 +92,15 @@ public partial class Starter : Window
         {
             if (Server.IsActived)
             {
+                if (Services.App.IsActived is false)
+                {
+                    timer.Interval = new TimeSpan(1, 1, 1, 0xC);
+
+                    Services.App.Activate();
+                    Services.App.StartProcess();
+
+                    timer.Interval = new TimeSpan(0, 0, 1);
+                }
                 notifyIcon.Icon = icons[DateTime.Now.Second % 2];
             }
             else
