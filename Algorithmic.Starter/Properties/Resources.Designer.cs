@@ -181,6 +181,15 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   C:\Algorithmic Trading과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string PATH {
+            get {
+                return ResourceManager.GetString("PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   pwsh과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string POWERSHELL {
@@ -250,15 +259,6 @@ namespace ShareInvest.Properties {
         internal static string WARNING {
             get {
                 return ResourceManager.GetString("WARNING", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   C:\Program Files (x86)과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string X86 {
-            get {
-                return ResourceManager.GetString("X86", resourceCulture);
             }
         }
     }

@@ -10,7 +10,7 @@ static class App
 {
     internal static void Activate()
     {
-        var dirInfo = new DirectoryInfo(Path.Combine(Resources.X86, nameof(Resources.SECURITIES)));
+        var dirInfo = new DirectoryInfo(Resources.PATH);
         var parent = Directory.GetParent(Environment.CurrentDirectory);
         var latestPath = string.Empty;
 
@@ -38,7 +38,7 @@ static class App
             {
                 continue;
             }
-            var presentFileInfo = new FileInfo(file.Replace(latestFileInfo.DirectoryName, dirInfo.FullName));
+            var presentFileInfo = new FileInfo(file.Replace(latestPath, dirInfo.FullName));
 
             if (presentFileInfo.Exists)
             {
@@ -70,7 +70,7 @@ static class App
             {
                 UseShellExecute = true,
                 FileName = Resources.SECURITIES,
-                WorkingDirectory = Path.Combine(Resources.X86, nameof(Resources.SECURITIES)),
+                WorkingDirectory = Resources.PATH,
                 Verb = Resources.ADMIN
             }
         })

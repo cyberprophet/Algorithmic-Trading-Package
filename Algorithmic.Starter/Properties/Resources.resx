@@ -157,6 +157,9 @@
   <data name="NOTICE" xml:space="preserve">
     <value>major problem arises.</value>
   </data>
+  <data name="PATH" xml:space="preserve">
+    <value>C:\Algorithmic Trading</value>
+  </data>
   <data name="POWERSHELL" xml:space="preserve">
     <value>pwsh</value>
   </data>
@@ -180,8 +183,5 @@
   </data>
   <data name="WARNING" xml:space="preserve">
     <value>It can be fatal to data when manually terminated.||Do you really want to end it?</value>
-  </data>
-  <data name="X86" xml:space="preserve">
-    <value>C:\Program Files (x86)</value>
   </data>
 </root>
