@@ -84,9 +84,7 @@ static class Server
                 foreach (var file in Directory.GetFiles(directoryName, "*", SearchOption.AllDirectories))
                 {
                     var destFileName = file.Replace(removePath, string.Empty);
-#if DEBUG
-                    Debug.WriteLine(destFileName);
-#endif
+
                     if (Path.GetDirectoryName(destFileName) is string directory)
                     {
                         var di = new DirectoryInfo(directory);
