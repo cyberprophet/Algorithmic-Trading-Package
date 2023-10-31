@@ -61,6 +61,15 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   Get-Content -Path access.log -Wait과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ACCESS {
+            get {
+                return ResourceManager.GetString("ACCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   runas과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string ADMIN {
@@ -70,67 +79,45 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        ///   동학개미운동과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static System.Drawing.Icon bird_alert {
+        internal static string ANT {
             get {
-                object obj = ResourceManager.GetObject("bird_alert", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("ANT", resourceCulture);
             }
         }
         
         /// <summary>
         ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Icon bird_awake {
+        internal static System.Drawing.Icon BLACK {
             get {
-                object obj = ResourceManager.GetObject("bird_awake", resourceCulture);
+                object obj = ResourceManager.GetObject("BLACK", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   start nginx과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string COMMAND {
+            get {
+                return ResourceManager.GetString("COMMAND", resourceCulture);
             }
         }
         
         /// <summary>
         ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Icon bird_away {
+        internal static System.Drawing.Icon DOWNLOAD {
             get {
-                object obj = ResourceManager.GetObject("bird_away", resourceCulture);
+                object obj = ResourceManager.GetObject("DOWNLOAD", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon bird_idle {
-            get {
-                object obj = ResourceManager.GetObject("bird_idle", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon bird_invisible {
-            get {
-                object obj = ResourceManager.GetObject("bird_invisible", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon bird_sleep {
-            get {
-                object obj = ResourceManager.GetObject("bird_sleep", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   major problem arises.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Get-Content -Path error.log -Wait과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string ERROR {
             get {
@@ -157,6 +144,61 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon IDLE {
+            get {
+                object obj = ResourceManager.GetObject("IDLE", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   logs과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string LOG {
+            get {
+                return ResourceManager.GetString("LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   F:\nginx-1.24.0과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string NGINX {
+            get {
+                return ResourceManager.GetString("NGINX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   major problem arises.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string NOTICE {
+            get {
+                return ResourceManager.GetString("NOTICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   C:\Algorithmic Trading과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string PATH {
+            get {
+                return ResourceManager.GetString("PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   pwsh과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string POWERSHELL {
+            get {
+                return ResourceManager.GetString("POWERSHELL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   시작프로그램 등록과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string REGISTER {
@@ -175,11 +217,11 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
-        ///   Algorithmic-Trading과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Kiwoom.exe과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string TITLE {
+        internal static string SECURITIES {
             get {
-                return ResourceManager.GetString("TITLE", resourceCulture);
+                return ResourceManager.GetString("SECURITIES", resourceCulture);
             }
         }
         
@@ -198,6 +240,16 @@ namespace ShareInvest.Properties {
         internal static string UPDATE {
             get {
                 return ResourceManager.GetString("UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon UPLOAD {
+            get {
+                object obj = ResourceManager.GetObject("UPLOAD", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
