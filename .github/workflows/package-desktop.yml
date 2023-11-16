@@ -2,10 +2,11 @@ name: .NET PACKAGE
 
 on:
   push:
-    branches: [ 'dev' ]
+    branches: [ 'dev', 'package' ]
     
     paths:
       - 'Algorithmic.Install/**'
+      - 'Algorithmic.Starter/**'
 
 jobs:
   build:
@@ -16,7 +17,7 @@ jobs:
     strategy:
       matrix:
         targetplatform: [x64]
-        dotnet-version: ['7.0.x']
+        dotnet-version: [ '7.0.x', '8.0.x' ]
 
     runs-on: windows-latest
     
