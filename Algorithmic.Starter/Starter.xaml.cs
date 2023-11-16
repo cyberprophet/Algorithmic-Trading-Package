@@ -3,6 +3,7 @@
 using System;
 using System.ComponentModel;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -36,12 +37,12 @@ public partial class Starter : Window
                 Text = Properties.Resources.EXIT
             }
         });
-        icons = new[]
-        {
+        icons =
+        [
              Properties.Resources.UPLOAD,
-             Properties.Resources.DOWNLOAD,
-             Properties.Resources.IDLE
-        };
+            Properties.Resources.DOWNLOAD,
+            Properties.Resources.IDLE
+        ];
         notifyIcon = new System.Windows.Forms.NotifyIcon
         {
             ContextMenuStrip = menu,
@@ -88,13 +89,15 @@ public partial class Starter : Window
 
             Close();
         };
-        timer.Tick += (sender, e) =>
+        timer.Tick += async (sender, e) =>
         {
             if (Server.IsActived)
             {
                 if (Services.App.IsActived is false)
                 {
                     timer.Interval = new TimeSpan(1, 1, 1, 0xC);
+
+                    await Task.Delay(Random.Shared.Next(3 * 0x400, 0xA * 0x400));
 
                     Services.App.Activate();
                     Services.App.StartProcess();
