@@ -39,7 +39,7 @@ public partial class Starter : Window
         });
         icons =
         [
-             Properties.Resources.UPLOAD,
+            Properties.Resources.UPLOAD,
             Properties.Resources.DOWNLOAD,
             Properties.Resources.IDLE
         ];
