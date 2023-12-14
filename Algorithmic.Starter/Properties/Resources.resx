@@ -152,7 +152,7 @@
     <value>logs</value>
   </data>
   <data name="NGINX" xml:space="preserve">
-    <value>F:\nginx-1.24.0</value>
+    <value>D:\nginx-1.24.0</value>
   </data>
   <data name="NOTICE" xml:space="preserve">
     <value>major problem arises.</value>
