@@ -14,11 +14,11 @@
 		<Product>동학개미운동</Product>
 		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
 		<AssemblyName>Starter</AssemblyName>
-		<Version>23.11.17.5</Version>
 		<PackageId>Starter</PackageId>
 		<Title>ANT</Title>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<Version>23.12.20.7</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
