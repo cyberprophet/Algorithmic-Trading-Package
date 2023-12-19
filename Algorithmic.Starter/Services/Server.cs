@@ -128,6 +128,53 @@ static class Server
                 GC.Collect();
             }
     }
+    internal static void StartProcess(string date)
+    {
+        var workingDirectory = Directory.GetParent(Environment.CurrentDirectory);
+
+        using (var process = new Process
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = Resources.POWERSHELL,
+                UseShellExecute = false,
+                RedirectStandardInput = true,
+                WorkingDirectory = workingDirectory?.FullName,
+                Verb = Resources.ADMIN,
+                CreateNoWindow = true
+            }
+        })
+        {
+            var executeCommand = @$".\ANT.exe >> {Resources.LOGS}\log-{date}.txt";
+
+            if (process.Start())
+            {
+                process.StandardInput.WriteLine(executeCommand + Environment.NewLine);
+                process.StandardInput.Close();
+
+                using (var p = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = Resources.POWERSHELL,
+                        UseShellExecute = false,
+                        RedirectStandardInput = true,
+                        WorkingDirectory = Resources.LOGS
+                    }
+                })
+                {
+                    var logCommand = $"Get-Content -Path log-{date}.txt -Wait";
+
+                    if (p.Start())
+                    {
+                        p.StandardInput.WriteLine(logCommand + Environment.NewLine);
+                        p.StandardInput.Close();
+                    }
+                    GC.Collect();
+                }
+            }
+        }
+    }
     internal static bool IsActived
     {
         get => Process.GetProcessesByName(nameof(Resources.ANT)).Length == 1;

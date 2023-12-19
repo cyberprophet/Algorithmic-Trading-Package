@@ -163,6 +163,15 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   D:\logs과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string LOGS {
+            get {
+                return ResourceManager.GetString("LOGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   D:\nginx-1.24.0과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string NGINX {

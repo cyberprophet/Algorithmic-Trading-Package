@@ -151,6 +151,9 @@
   <data name="LOG" xml:space="preserve">
     <value>logs</value>
   </data>
+  <data name="LOGS" xml:space="preserve">
+    <value>D:\logs</value>
+  </data>
   <data name="NGINX" xml:space="preserve">
     <value>D:\nginx-1.24.0</value>
   </data>

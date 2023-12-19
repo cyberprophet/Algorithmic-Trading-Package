@@ -116,7 +116,7 @@ public partial class Starter : Window
                     {
                         Nginx.StartProcess();
                     }
-                    Server.StartProcess();
+                    Server.StartProcess(DateTime.Now.ToString("d"));
 
                     timer.Interval = new TimeSpan(0, 0, 1);
                 }
