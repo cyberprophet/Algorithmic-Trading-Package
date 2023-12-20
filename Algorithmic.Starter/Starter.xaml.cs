@@ -61,10 +61,6 @@ public partial class Starter : Window
             {
                 if (Server.Update())
                 {
-                    Server.StartProcess();
-                }
-                else
-                {
                     notifyIcon.Text = Properties.Resources.NOTICE;
                 }
                 return;
