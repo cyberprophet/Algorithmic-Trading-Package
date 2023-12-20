@@ -18,7 +18,7 @@
 		<Title>ANT</Title>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<Version>23.12.20.7</Version>
+		<Version>23.12.20.8</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

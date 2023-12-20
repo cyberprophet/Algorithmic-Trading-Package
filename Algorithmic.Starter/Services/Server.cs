@@ -107,7 +107,7 @@ static class Server
         {
             process.Kill(IsActived);
         }
-        return Activate();
+        return IsActived;
     }
     internal static void StartProcess()
     {
