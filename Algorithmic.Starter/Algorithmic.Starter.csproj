@@ -18,18 +18,11 @@
 		<Title>ANT</Title>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<Version>24.8.23.41</Version>
+		<Version>8.25.10.3</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Content Include="analytics.ico" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="..\..\ANT\LICENSE.txt">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
 	</ItemGroup>
 
 	<ItemGroup>
