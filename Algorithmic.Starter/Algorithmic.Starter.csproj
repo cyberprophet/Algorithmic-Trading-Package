@@ -15,7 +15,7 @@
 		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
 		<AssemblyName>Starter</AssemblyName>
 		<Title>ANT</Title>
-		<Version>24.8.23.41</Version>
+		<Version>8.25.10.3</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
