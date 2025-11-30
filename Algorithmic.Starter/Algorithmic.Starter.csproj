@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0-windows10.0.20348.0</TargetFramework>
+		<TargetFramework>net10.0-windows10.0.20348.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>True</UseWPF>
 		<UseWindowsForms>True</UseWindowsForms>
@@ -15,7 +15,7 @@
 		<Copyright>Copyright ⓒ 2023, ShareInvest Corp.</Copyright>
 		<AssemblyName>Starter</AssemblyName>
 		<Title>ANT</Title>
-		<Version>8.25.10.3</Version>
+		<Version>10.0.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

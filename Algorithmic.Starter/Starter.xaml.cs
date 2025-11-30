@@ -19,6 +19,7 @@ public partial class Starter : Window
         {
             Cursor = System.Windows.Forms.Cursors.Hand
         };
+
         menu.Items.AddRange(
         [
             new System.Windows.Forms.ToolStripMenuItem
@@ -37,12 +38,14 @@ public partial class Starter : Window
                 Text = Properties.Resources.EXIT
             }
         ]);
+
         icons =
         [
             Properties.Resources.UPLOAD,
             Properties.Resources.DOWNLOAD,
             Properties.Resources.IDLE
         ];
+
         notifyIcon = new System.Windows.Forms.NotifyIcon
         {
             ContextMenuStrip = menu,
@@ -51,10 +54,12 @@ public partial class Starter : Window
             Icon = Properties.Resources.BLACK,
             BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
         };
+
         timer = new DispatcherTimer
         {
             Interval = new TimeSpan(0, 0, 1)
         };
+
         menu.ItemClicked += (sender, e) =>
         {
             if (nameof(Properties.Resources.UPDATE).Equals(e.ClickedItem?.Name))
@@ -86,6 +91,7 @@ public partial class Starter : Window
 
             Close();
         };
+
         timer.Tick += async (sender, e) =>
         {
             if (Server.IsActived)
@@ -109,15 +115,15 @@ public partial class Starter : Window
 
                 if (Server.Activate())
                 {
-                    Server.StartProcess(DateTime.Now.ToString("d"));
-
-                    timer.Interval = new TimeSpan(0, 0, 1);
+                    notifyIcon.Icon = icons[^1];
                 }
                 else
                 {
                     notifyIcon.Text = $"{DateTime.Now:g}\n[{nameof(Server.StartProcess)}] {Properties.Resources.NOTICE}";
                 }
-                notifyIcon.Icon = icons[^1];
+                Server.StartProcess(DateTime.Now.ToString("d"));
+
+                timer.Interval = new TimeSpan(0, 0, 1);
             }
         };
         InitializeComponent();

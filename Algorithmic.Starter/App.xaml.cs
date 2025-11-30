@@ -19,6 +19,8 @@ public partial class App : Application
                 return;
             }
         }
+        var fileName = string.Concat(Assembly.GetEntryAssembly()?.ManifestModule.Name[..^4], ShareInvest.Properties.Resources.EXE[1..]);
+
         using (var process = new Process
         {
             StartInfo = new ProcessStartInfo
@@ -26,7 +28,7 @@ public partial class App : Application
                 WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory,
                 Verb = ShareInvest.Properties.Resources.ADMIN,
                 UseShellExecute = true,
-                FileName = string.Concat(Assembly.GetEntryAssembly()?.ManifestModule.Name[..^4], ShareInvest.Properties.Resources.EXE[1..])
+                FileName = fileName
             }
         })
             if (process.Start())
@@ -37,6 +39,7 @@ public partial class App : Application
             {
                 MessageBox.Show(process.StartInfo.WorkingDirectory, process.ProcessName, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
         Process.GetCurrentProcess().Kill();
     }
 }

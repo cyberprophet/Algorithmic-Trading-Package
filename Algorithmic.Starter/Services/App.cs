@@ -33,6 +33,28 @@ static class App
             dirInfo.Create();
         }
 
+        foreach (var file in Directory.GetFiles(latestPath, Resources.EXE, SearchOption.AllDirectories))
+        {
+            var latestFileInfo = new FileInfo(file);
+
+            if (string.IsNullOrEmpty(latestFileInfo.DirectoryName))
+            {
+                continue;
+            }
+            var presentFileInfo = new FileInfo(file.Replace(latestPath, dirInfo.FullName));
+
+            if (presentFileInfo.Exists)
+            {
+                var latest = FileVersionInfo.GetVersionInfo(file);
+                var present = FileVersionInfo.GetVersionInfo(presentFileInfo.FullName);
+
+                if (string.IsNullOrEmpty(latest.FileVersion) is false && latest.FileVersion.Equals(present.FileVersion))
+                {
+                    return;
+                }
+            }
+        }
+
         foreach (var file in Directory.GetFiles(latestPath, "*", SearchOption.AllDirectories))
         {
             var latestFileInfo = new FileInfo(file);
@@ -79,10 +101,7 @@ static class App
             }
         })
         {
-            if (process.Start())
-            {
-                GC.Collect();
-            }
+            if (process.Start()) GC.Collect();
         }
     }
 
