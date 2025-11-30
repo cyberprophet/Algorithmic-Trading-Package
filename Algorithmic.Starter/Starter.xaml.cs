@@ -115,15 +115,15 @@ public partial class Starter : Window
 
                 if (Server.Activate())
                 {
-                    Server.StartProcess(DateTime.Now.ToString("d"));
-
-                    timer.Interval = new TimeSpan(0, 0, 1);
+                    notifyIcon.Icon = icons[^1];
                 }
                 else
                 {
                     notifyIcon.Text = $"{DateTime.Now:g}\n[{nameof(Server.StartProcess)}] {Properties.Resources.NOTICE}";
                 }
-                notifyIcon.Icon = icons[^1];
+                Server.StartProcess(DateTime.Now.ToString("d"));
+
+                timer.Interval = new TimeSpan(0, 0, 1);
             }
         };
         InitializeComponent();
