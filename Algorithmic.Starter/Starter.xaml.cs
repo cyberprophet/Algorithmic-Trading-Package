@@ -113,7 +113,8 @@ public partial class Starter : Window
 
         timer.Tick += async (sender, e) =>
         {
-            if (Server.IsActived)
+            // WINDOWS SERVER
+            // if (Server.IsActived)
             {
                 if (Services.App.IsActived is false)
                 {
@@ -128,6 +129,8 @@ public partial class Starter : Window
                 }
                 notifyIcon.Icon = icons[DateTime.Now.Second % 2];
             }
+
+            /* WINDOWS SERVER
             else
             {
                 timer.Interval = new TimeSpan(1, 1, 1, 0xC);
@@ -144,6 +147,7 @@ public partial class Starter : Window
 
                 timer.Interval = new TimeSpan(0, 0, 1);
             }
+            */
         };
         InitializeComponent();
 
