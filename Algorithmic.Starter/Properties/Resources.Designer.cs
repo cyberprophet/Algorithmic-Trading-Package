@@ -19,7 +19,7 @@ namespace ShareInvest.Properties {
     // 클래스에서 자동으로 생성되었습니다.
     // 멤버를 추가하거나 제거하려면 .ResX 파일을 편집한 다음 /str 옵션을 사용하여 ResGen을
     // 다시 실행하거나 VS 프로젝트를 다시 빌드하십시오.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -154,6 +154,15 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   Naver과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string INQUIRY {
+            get {
+                return ResourceManager.GetString("INQUIRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   logs과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string LOG {
@@ -226,11 +235,29 @@ namespace ShareInvest.Properties {
         }
         
         /// <summary>
+        ///   테마별 시세 조회 중지과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string SEARCHINGTHEME {
+            get {
+                return ResourceManager.GetString("SEARCHINGTHEME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Kiwoom.exe과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string SECURITIES {
             get {
                 return ResourceManager.GetString("SECURITIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   테마별 시세 조회과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string THEME {
+            get {
+                return ResourceManager.GetString("THEME", resourceCulture);
             }
         }
         

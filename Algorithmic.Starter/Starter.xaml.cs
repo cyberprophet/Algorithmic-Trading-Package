@@ -24,6 +24,11 @@ public partial class Starter : Window
         [
             new System.Windows.Forms.ToolStripMenuItem
             {
+                Name = nameof(Properties.Resources.THEME),
+                Text = SearchingTheme ? Properties.Resources.SEARCHINGTHEME : Properties.Resources.THEME
+            },
+            new System.Windows.Forms.ToolStripMenuItem
+            {
                 Name = nameof(Properties.Resources.REGISTER),
                 Text = IsRegistered ? Properties.Resources.UNREGISTER : Properties.Resources.REGISTER
             },
@@ -62,6 +67,19 @@ public partial class Starter : Window
 
         menu.ItemClicked += (sender, e) =>
         {
+            if (nameof(Properties.Resources.THEME).Equals(e.ClickedItem?.Name))
+            {
+                SearchingTheme = SearchingTheme is false;
+
+                _ = Task.Run(async () =>
+                {
+                    while (SearchingTheme) await Task.Delay(0x400 * Update.InquiryProcess());
+                });
+                e.ClickedItem.Text = SearchingTheme ? Properties.Resources.SEARCHINGTHEME : Properties.Resources.THEME;
+
+                return;
+            }
+
             if (nameof(Properties.Resources.UPDATE).Equals(e.ClickedItem?.Name))
             {
                 if (Server.Update())
@@ -90,11 +108,13 @@ public partial class Starter : Window
             IsUserClosing = true;
 
             Close();
-        };
+        }
+            ;
 
         timer.Tick += async (sender, e) =>
         {
-            if (Server.IsActived)
+            // WINDOWS SERVER
+            // if (Server.IsActived)
             {
                 if (Services.App.IsActived is false)
                 {
@@ -109,6 +129,8 @@ public partial class Starter : Window
                 }
                 notifyIcon.Icon = icons[DateTime.Now.Second % 2];
             }
+
+            /* WINDOWS SERVER
             else
             {
                 timer.Interval = new TimeSpan(1, 1, 1, 0xC);
@@ -125,6 +147,7 @@ public partial class Starter : Window
 
                 timer.Interval = new TimeSpan(0, 0, 1);
             }
+            */
         };
         InitializeComponent();
 
@@ -164,6 +187,11 @@ public partial class Starter : Window
     bool IsRegistered
     {
         get => register.GetValue(Properties.Resources.ANT);
+    }
+
+    bool SearchingTheme
+    {
+        get; set;
     }
 
     readonly System.Windows.Forms.ContextMenuStrip menu;

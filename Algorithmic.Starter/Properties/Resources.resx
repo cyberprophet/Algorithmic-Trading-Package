@@ -148,6 +148,9 @@
   <data name="IDLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_white.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="INQUIRY" xml:space="preserve">
+    <value>Naver</value>
+  </data>
   <data name="LOG" xml:space="preserve">
     <value>logs</value>
   </data>
@@ -172,8 +175,14 @@
   <data name="RUN" xml:space="preserve">
     <value>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</value>
   </data>
+  <data name="SEARCHINGTHEME" xml:space="preserve">
+    <value>테마별 시세 조회 중지</value>
+  </data>
   <data name="SECURITIES" xml:space="preserve">
     <value>Kiwoom.exe</value>
+  </data>
+  <data name="THEME" xml:space="preserve">
+    <value>테마별 시세 조회</value>
   </data>
   <data name="UNREGISTER" xml:space="preserve">
     <value>시작프로그램 해제</value>
