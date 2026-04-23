@@ -1,4 +1,4 @@
-﻿using Google.Cloud.Speech.V1;
+using Google.Cloud.Speech.V1;
 
 using System.Reflection;
 

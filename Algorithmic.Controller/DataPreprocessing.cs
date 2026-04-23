@@ -1,4 +1,4 @@
-﻿using ShareInvest.ML.Models;
+using ShareInvest.ML.Models;
 
 namespace ShareInvest;
 

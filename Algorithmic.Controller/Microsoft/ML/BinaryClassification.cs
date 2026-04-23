@@ -1,4 +1,4 @@
-﻿using Microsoft.ML;
+using Microsoft.ML;
 using Microsoft.ML.Trainers;
 
 using Newtonsoft.Json;

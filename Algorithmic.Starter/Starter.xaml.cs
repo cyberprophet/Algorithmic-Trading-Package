@@ -1,4 +1,4 @@
-﻿using ShareInvest.Services;
+using ShareInvest.Services;
 
 using System;
 using System.ComponentModel;

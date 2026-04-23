@@ -1,4 +1,4 @@
-﻿using Microsoft.ML;
+using Microsoft.ML;
 
 namespace ShareInvest.Microsoft;
 

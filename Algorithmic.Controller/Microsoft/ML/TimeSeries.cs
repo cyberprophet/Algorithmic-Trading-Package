@@ -1,4 +1,4 @@
-﻿using Microsoft.ML;
+using Microsoft.ML;
 using Microsoft.ML.Transforms.TimeSeries;
 
 using ShareInvest.Microsoft.Models;

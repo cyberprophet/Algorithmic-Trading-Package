@@ -1,4 +1,4 @@
-﻿namespace ShareInvest.ML.Models;
+namespace ShareInvest.ML.Models;
 
 public record InputStockChart
 {

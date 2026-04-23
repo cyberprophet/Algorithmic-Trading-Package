@@ -1,4 +1,4 @@
-﻿using ShareInvest.Naver;
+using ShareInvest.Naver;
 
 const string sentence = "번역할 문장을 넣어주세요~";
 

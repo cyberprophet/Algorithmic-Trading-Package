@@ -1,4 +1,4 @@
-﻿namespace ShareInvest.Models;
+namespace ShareInvest.Models;
 
 readonly struct File
 {

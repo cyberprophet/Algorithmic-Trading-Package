@@ -1,4 +1,4 @@
-﻿using ShareInvest.Properties;
+using ShareInvest.Properties;
 
 using System;
 using System.Collections.Generic;

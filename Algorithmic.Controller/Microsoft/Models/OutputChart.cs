@@ -1,4 +1,4 @@
-﻿namespace ShareInvest.Microsoft.Models;
+namespace ShareInvest.Microsoft.Models;
 
 public class OutputChart
 {
